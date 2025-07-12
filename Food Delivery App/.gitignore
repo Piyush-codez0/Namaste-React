@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Parcel build output
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files (if used)
+.env
+.env.local
+
+# IDE settings
+.vscode/
+.idea/
+
+.parcel-cache
