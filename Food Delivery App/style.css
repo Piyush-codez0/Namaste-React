@@ -6,8 +6,9 @@
 }
 
 html, body {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
+    /* background-color:whitesmoke; */
 }
 
 #logo img {
@@ -18,11 +19,11 @@ html, body {
 .navbar {
     width: 99%;
     height: 10vh;
-    background-color: rgba(217, 184, 250, 0.397);
+    /* background-color: rgba(217, 184, 250, 0.397); */
     display: flex;
     justify-content:space-between;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 5px;
     overflow: hidden;
 }
@@ -34,19 +35,20 @@ html, body {
     gap: 2vw;
 }
 
-#searchbutton {
+#main > #searchbutton {
     padding: 5px;
 }
 
 #cards {
-    /* height: 250px; */
+    height: 300px;
     width: 200px;
     margin: 5px;
+    padding: 5px;
+    line-height: 1.7;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #f0e8e8;
+    background-color:rgb(252, 239, 223);
 }
 
 #cards > p {
@@ -60,15 +62,17 @@ html, body {
 
 }
 
-#cards img {
+#cards > img {
     height: 120px;
     width: 100%;
     padding: 5px;
     margin-bottom: 1vh;
+    border-radius: 5px;
 
 }
 
 #main > #res-container {
     display: flex;
-    justify-content: evenly-spaced;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
