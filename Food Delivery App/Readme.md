@@ -2,10 +2,9 @@
 
 To make this app I have used HTML, CSS, JavaScript and React library with Parcel bundler.
 
-## Concepts I have learnt while making this App:
+## Concepts I have learnt while making this Project:
 - Injecting react in our App using React and ReactDom CDNs.
 - Bundlers 
-- 
 - React Elements
 - JSX
 - React Components 
@@ -16,7 +15,7 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
 - Tilde(~) & Caret(^)
 - Dependencies with Types
 - Creating Scripts in package.json
-- Some JS concepts like Map, Filter, Reduce
+- Some JS concepts like Map, Filter, Reduce, Optional chaining,
 - Key
 - Config. driven UI
 
