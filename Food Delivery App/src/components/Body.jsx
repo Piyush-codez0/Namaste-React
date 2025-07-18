@@ -15,11 +15,16 @@ const Body = () => {
         setRestaurants(fD);
     };
 
+    const reset = () => {
+      setRestaurants(res_data)
+    };
+
   return (
     <div id="main">
       <div id="searchbutton">
         <button onClick={topRatedRest}>Top Rated Restaurants</button>
         <button onClick={fastDelivery}>Fast Delivery Restaurants</button>
+        <button onClick={reset}>Reset filters</button>
       </div>
 
       <div id="res-container">
