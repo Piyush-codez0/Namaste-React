@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
   return (
     <div className="card-container">
       <div id="cards">
-        <img src={IMG_URL + cloudinaryImageId} alt={name} />
+        <img className="food-image" src={IMG_URL + cloudinaryImageId} alt={name} />
         <h4>{name}</h4>
         <p>[{cuisines.join(", ")}]</p>
         <p>{areaName}</p>

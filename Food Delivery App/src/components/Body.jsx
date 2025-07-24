@@ -7,6 +7,8 @@ const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]); // For filtering
   const [searchText, setSearchText] = useState(""); // For search
+  const [selectedFilter, setSelectedFilter] = useState("all");
+
 
   // Fetching Data from Swiggy API
   useEffect(() => {
@@ -18,42 +20,11 @@ const Body = () => {
       const data = await fetch(API);
       const json = await data.json();
       const restaurantList = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-      setRestaurants(restaurantList);
-      setAllRestaurants(restaurantList);
+      setRestaurants(restaurantList || []); // default to an empty array to avoid runtime errors.
+      setAllRestaurants(restaurantList || []);
   };
 
   console.log("Body Rendered!")
-
-  // Filter Top Rated Restaurants (rating > 4)
-  const topRatedRest = () => {
-    const topRated = restaurants.filter(
-      (data) => data.info.avgRating > 4
-    );
-    setRestaurants(topRated);
-  };
-
-  // Filter fast delivery restaurants (DeliveryTime < 30min.)
-  const fastDelivery = () => {
-      const fD = allRestaurants.filter(
-        (data) => data.info.sla.deliveryTime < 30
-      );
-      setRestaurants(fD);
-  };
-
-  // Reset btn to reset filters
-  const reset = () => {
-    setRestaurants(allRestaurants)
-  };
-
-  // Search Btn
-  // const search = () => {
-  //   console.log(searchText);
-  //   const filteredRestaurants = restaurants.filter(
-  //     (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
-  //   )
-  //   setRestaurants(filteredRestaurants);
-   
-  // }
 
   // LIVE FILTER: updates restaurant cards as you type
   useEffect(() => {
@@ -62,6 +33,27 @@ const Body = () => {
     );
     setRestaurants(filtered);
   }, [searchText]); // runs when searchText changes
+
+
+  // DropDown Menu
+  const handleFilterChange = (e) => {
+  const value = e.target.value;
+  setSelectedFilter(value);
+
+  let filteredData = allRestaurants;
+
+  if (value === "fastDelivery") {
+    filteredData = allRestaurants.filter((res) => res.info.sla.deliveryTime < 30);
+  } else if (value === "4") {
+    filteredData = allRestaurants.filter((res) => res.info.avgRating >= 4);
+  } else if (value === "3") {
+    filteredData = allRestaurants.filter((res) => res.info.avgRating >= 3);
+  } else if (value === "all") {
+    filteredData = allRestaurants;
+  }
+
+  setRestaurants(filteredData);
+};
 
   
   return restaurants.length === 0 ? (
@@ -82,16 +74,22 @@ const Body = () => {
         ) : (
     <div id="main">
       <div id="buttons">
-        <button onClick={topRatedRest}>Top Rated Restaurants</button>
-        <button onClick={fastDelivery}>Fast Delivery Restaurants</button>
-        <button onClick={reset}>Reset filters</button>
 
+        <select value={selectedFilter} onChange={handleFilterChange}>
+          <option value="all">All</option>
+          <option value="4">Rating 4★ and above</option>
+          <option value="3">Rating 3★ and above</option>
+          <option value="fastDelivery">Quick Delivery</option>
+        </select>
+        
         <input
-            type="text"
-            placeholder="Search for a Restaurant"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
+          type="text"
+          placeholder="Search for a Restaurant"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+
+
 
       </div>
 
