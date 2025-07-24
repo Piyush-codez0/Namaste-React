@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { API } from "../utils/constants";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -14,10 +15,9 @@ const Body = () => {
 
   const fetchData = async () => {
 
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3445041&lng=77.8865854&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch(API);
       const json = await data.json();
       const restaurantList = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-      console.log(json);
       setRestaurants(restaurantList);
       setAllRestaurants(restaurantList);
   };
@@ -35,7 +35,8 @@ const Body = () => {
   // Filter fast delivery restaurants (DeliveryTime < 30min.)
   const fastDelivery = () => {
       const fD = allRestaurants.filter(
-        (data) => data.info.sla.deliveryTime < 30);
+        (data) => data.info.sla.deliveryTime < 30
+      );
       setRestaurants(fD);
   };
 
@@ -44,6 +45,25 @@ const Body = () => {
     setRestaurants(allRestaurants)
   };
 
+  // Search Btn
+  // const search = () => {
+  //   console.log(searchText);
+  //   const filteredRestaurants = restaurants.filter(
+  //     (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
+  //   )
+  //   setRestaurants(filteredRestaurants);
+   
+  // }
+
+  // LIVE FILTER: updates restaurant cards as you type
+  useEffect(() => {
+    const filtered = allRestaurants.filter((res) =>
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setRestaurants(filtered);
+  }, [searchText]); // runs when searchText changes
+
+  
   return restaurants.length === 0 ? (
           <div className="shimmer-container">
           <Shimmer />
@@ -61,22 +81,18 @@ const Body = () => {
           </div>
         ) : (
     <div id="main">
-      <div id="searchbutton">
+      <div id="buttons">
         <button onClick={topRatedRest}>Top Rated Restaurants</button>
         <button onClick={fastDelivery}>Fast Delivery Restaurants</button>
         <button onClick={reset}>Reset filters</button>
 
-        <input type="text" value={searchText} onChange={(e) => {
-          setSearchText(e.target.value);
-        }}/>
-        <button onClick={() => {
-          console.log(searchText);
-          const filteredRestaurants = restaurants.filter(
-            (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
-          )
-            setRestaurants(filteredRestaurants);
+        <input
+            type="text"
+            placeholder="Search for a Restaurant"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
 
-        }} >Search</button>
       </div>
 
       <div id="res-container">

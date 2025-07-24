@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react"; 
 
@@ -17,10 +18,9 @@ const Header = () => {
       </div>
 
       <div id="menus">
-        <a href="#" style={{ textDecoration: "none", color: "Black" }}>Home</a>
-        <a href="#" style={{ textDecoration: "none", color: "Black" }}>About</a>
-        <a href="#" style={{ textDecoration: "none", color: "Black" }}>Profile</a>
-        <a href="#" style={{ textDecoration: "none", color: "Black" }}>Contact us</a>
+        <Link to={"/"} style={{ textDecoration: "none", color: "Black" }}>Home</ Link >
+        <Link to={"/about"} style={{ textDecoration: "none", color: "Black" }}>About</ Link >
+        <Link to={"/contact"} style={{ textDecoration: "none", color: "Black" }}>Contact us</ Link >
 
         {/* Toggle Login/Logout based on state */}
         <button className="login-btn" onClick={loginHandler}>

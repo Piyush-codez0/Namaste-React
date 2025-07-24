@@ -39,7 +39,7 @@ html, body {
     width: 70px;
 }
 
-#main > #searchbutton {
+#main > #buttons {
     padding: 5px;
 }
 
@@ -50,6 +50,11 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+#buttons {
+    display: flex;
+    justify-content:flex-end;
 }
 
 #cards {
