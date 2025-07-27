@@ -8,7 +8,7 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
 - React Elements
 - Tilde(~) & Caret(^)
 - JSX
-    -Inline style
+    -Inline style(CSS)
 - React Components 
     - Types
     - Component composition
@@ -21,7 +21,8 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
     - Types
     - Transitive Dependencies
 - Creating Scripts in package.json
-- Some JS concepts like Map, Filter, Reduce, Optional chaining, Destructuring
+- Some JS concepts like 
+    - Map, Filter, Reduce, Optional chaining, Destructuring, Template literals
 - Key
 - Config. driven UI
 - React file/folder Structure
@@ -33,6 +34,7 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
         - Callback function
         - Dependency Array
     - useRouteError()
+    - useParams()
 - FIBER Architecture
     - Real and Virtual DOM
     - Diffing Algorithm
@@ -40,13 +42,31 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
 - Approaches for Page Rendering 
     1. Page load -> API call -> Fetch Data -> Render whole page
     2. Page load -> Render what can possible -> API call -> Fetch Data -> Render whole page ✅
+- Conditional Rendering
+    - If, if-else
+    - Ternary Operator
+    - Logical AND
+    - Logical OR
+    - Logical NOT
+- React Router
+    - Link
+    - createBrowserRouter()
+    - RouterProvider
+    - Outlet
+    - useParams hook
 - Promises, Async, Await, fetch()
 - Synchronous and Asynchronous JS
 - Event Handlers
     - onChange()
-    - onClick
+    - onClick()
+- React Router Dom
+    - Simple Routing
+    - Dynamic Routing
+- Types of Routing
+    - Server side Routing
+    - Client side Routing
+- Class Based Components
 
 
 
 Author: @Piyush_Rawat
-
