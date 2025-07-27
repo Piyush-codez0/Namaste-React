@@ -6,36 +6,42 @@ import About from "./components/About";
 import Error from "./components/Error";
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const App = () => (
-    <div>
-        <Header />
-        <Outlet />  {/* Whenever their is a chance in the path, then outlet will be filled with the children according to the path. */} 
-    </div>
-)
+  <div>
+    <Header />
+    <Outlet />
+    {/* Whenever their is a change in the path, then outlet will be filled with the children according to the path. */}
+  </div>
+);
 
-const appRouter = createBrowserRouter([  //Taking Configurations
-    {
-    path: "/",
+const appRouter = createBrowserRouter([
+  //Taking Configurations
+  {
+    path: "/", // Root path
     element: <App />,
     children: [
-        {
-            path: "/",  //if this is path
-            element: <Body />  //Then load this
-        },
-        {
-            path: "/about",
-            element: <About />
-        },
-        {
-            path: "/contact",
-            element: <Contact />
-        }
+      {
+        path: "/", //if this is path
+        element: <Body />, //Then load this
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      }
     ],
     errorElement: <Error />
-    }  
-])
+  }
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={appRouter} />);   // RP : Provide the confi. to our React APP
+root.render(<RouterProvider router={appRouter} />); // RP : Provide the confi. to our React APP

@@ -2,10 +2,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "poppins";
+    font-family: 'poppins';
 }
 
-html, body {
+
+html,
+body {
     height: 100%;
     width: 100%;
     /* background-color:whitesmoke; */
@@ -16,13 +18,12 @@ html, body {
     height: 150px;
 }
 
-
 .navbar {
     width: 99%;
     height: 10vh;
     /* background-color: rgba(217, 184, 250, 0.397); */
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     /* border: 1px solid black; */
     margin: 5px;
@@ -53,14 +54,14 @@ button:hover {
     display: flex;
     width: 100%;
     padding: 5px;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 #buttons > input {
-    padding: 5px;
-    background-color:rgba(255, 240, 221, 0.651);
+    padding: 7px;
+    background-color: rgba(253, 246, 238, 0.651);
     border: 1px black solid;
-    border-radius: 5px;
+    border-radius: 50px;
     margin-right: 15px;
 }
 
@@ -73,8 +74,10 @@ button:hover {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    background-color:rgb(252, 239, 223);
+    background-color: rgb(252, 239, 223);
+    text-decoration: none;
 }
+
 
 #cards > .food-image {
     height: 130px;
@@ -87,21 +90,19 @@ button:hover {
     font-size: 12px;
 }
 
-
 #cards:hover {
     cursor: pointer;
     animation: card-hover 0.3s forwards;
-
 }
 
 @keyframes card-hover {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 5px 2px rgb(218, 217, 217);
-  }
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+        box-shadow: 0px 0px 5px 2px rgb(218, 217, 217);
+    }
 }
 
 /* img {
@@ -121,17 +122,17 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
+    margin-top: 45px;
 }
 
 .shimmer {
     height: 320px;
-    width: 200px;
+    width: 210px;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    background-color:rgb(252, 239, 223);
-    animation: shimmer-blink 1s infinite ;
+    background-color: rgb(252, 239, 223);
+    animation: shimmer-blink 1s infinite;
 }
 
 @keyframes shimmer-blink {
@@ -151,6 +152,27 @@ button:hover {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
-    background-color: azure;
+    background-color: rgb(247, 255, 255);
+}
 
+#Res-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#foodItem-Container > img {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+#res-brief{
+    width: 50%;
+    border: 1px solid black;
+    border-radius:30px 30px;
+    padding: 10px;
+    box-shadow: 0 8 5px 5px #dcdce4;
+    margin: 20px
 }
