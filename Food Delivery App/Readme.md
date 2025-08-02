@@ -65,7 +65,18 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
     - Server side Routing
     - Client side Routing
 - Class Based Components
-
+    - Component Lifecycle
+    - render()
+    - super(props)
+    - componentDidMount()
+    - componentDidUpdate()
+    - componentWillUnmount()
+- Custom Hooks
+- Lazy loading / on-demand loading / code splitting / dynamic imports / chunking / Dynamic Bundling
+    - <Suspense> </Suspense>
+        - fallback
+- Styling 
+    - Tailwing CSS
 
 
 Author: @Piyush_Rawat
