@@ -21,3 +21,5 @@ Thumbs.db
 
 .parcel-cache
 font
+
+.postcssrc

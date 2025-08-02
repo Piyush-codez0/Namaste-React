@@ -11,8 +11,6 @@ const Body = () => {
     const [searchText, setSearchText] = useState(""); // For search
     const [selectedFilter, setSelectedFilter] = useState("all");
 
-    const {resId} = useParams();
-
     // Fetching Data from Swiggy API
     useEffect(() => {
         fetchData();
@@ -30,14 +28,14 @@ const Body = () => {
 
     console.log("Body Rendered!");
 
-    // LIVE FILTER: updates restaurant cards as you type
+    // LIVE SEARCH: updates restaurant cards as you type
     useEffect(() => {
         const filtered = allRestaurants.filter((res) =>
             res.info.name.toLowerCase().includes(searchText.toLowerCase())
         );
         setRestaurants(filtered);
-    }, [searchText]); // runs when searchText changes
-
+    }, [searchText]); // runs when searchText changes -> Rerender the Page also
+    
     // DropDown Menu
     const handleFilterChange = (e) => {
         const value = e.target.value;

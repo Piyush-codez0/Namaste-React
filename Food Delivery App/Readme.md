@@ -22,8 +22,7 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
     - Transitive Dependencies
 - Creating Scripts in package.json
 - Some JS concepts like 
-    - Map, Filter, Reduce, Optional chaining, Destructuring, Template literals
-- Key
+    - Map & key, Filter, Reduce, Optional chaining, Destructuring, Template literals
 - Config. driven UI
 - React file/folder Structure
 - React Hooks
@@ -48,17 +47,17 @@ To make this app I have used HTML, CSS, JavaScript and React library with Parcel
     - Logical AND
     - Logical OR
     - Logical NOT
+- Promises, Async, Await, fetch()
+- Synchronous and Asynchronous JS
+- Event Handlers
+    - onChange()
+    - onClick()
 - React Router
     - Link
     - createBrowserRouter()
     - RouterProvider
     - Outlet
     - useParams hook
-- Promises, Async, Await, fetch()
-- Synchronous and Asynchronous JS
-- Event Handlers
-    - onChange()
-    - onClick()
 - React Router Dom
     - Simple Routing
     - Dynamic Routing
